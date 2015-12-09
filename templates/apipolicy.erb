@@ -1,4 +1,4 @@
-<%- @acl_policies.each_with_index do |policy, index| -%>
+<%- @api_policies.each_with_index do |policy, index| -%>
 description: '<%= policy['description'] %>'
 context:
   <%= policy['context'].keys[0] %>: '<%= policy['context'].values[0] %>'
@@ -25,18 +25,18 @@ for:
 <%- end -%>
 by:
 <%- policy['by'].each do |by| -%>
-  <%- unless by['group'].nil? && by['group'] != :undef -%>
+<%- unless by['group'].nil? && by['group'] != :undef -%>
   group:
   <%- by['group'].each do |group| -%>
     - '<%= group %>'
   <%- end -%>
-  <%- end -%>
-  <%- unless by['username'].nil? && by['username'] != :undef -%>
+<%- end -%>
   username:
+<%- unless by['username'].nil? && by['username'] != :undef -%>
   <%- by['username'].each do |username| -%>
     - '<%= username %>'
   <%- end -%>
-  <%- end -%>
+<%- end -%>
 <%- end -%>
 <%- if index != (@acl_policies.length-1) -%>
 

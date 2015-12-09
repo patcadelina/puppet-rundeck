@@ -60,7 +60,7 @@ class rundeck::params {
   $auth_template = 'rundeck/jaas-auth.conf.erb'
 
   $acl_template = 'rundeck/aclpolicy.erb'
-  $api_template = 'rundeck/aclpolicy.erb'
+  $api_template = 'rundeck/apipolicy.erb'
 
   $acl_policies = [
     {
